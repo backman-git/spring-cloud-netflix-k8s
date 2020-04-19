@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class EchoController{
 
     private static final String template = "Hello, %s!";
-	  private final AtomicLong counter = new AtomicLong();
+    private final AtomicLong counter = new AtomicLong();
     
     @GetMapping("echo")
     public Greeting greeting(@RequestParam(value = "name",defaultValue = "world") String name){
