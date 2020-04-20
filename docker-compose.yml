@@ -1,0 +1,6 @@
+version: "3.8"
+services:
+  echo_service:
+    image: backmandocker/echo_service
+    ports: 
+        - "8080:8080"
