@@ -12,7 +12,7 @@ public class EchoController{
     private static final String template = "Hello, %s!";
     private final AtomicLong counter = new AtomicLong();
     
-    @GetMapping("echo")
+    @GetMapping("/echo")
     public Greeting greeting(@RequestParam(value = "name",defaultValue = "world") String name){
 		return new Greeting(counter.incrementAndGet(), String.format(template, name));
     }

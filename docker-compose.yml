@@ -1,6 +1,15 @@
-version: "3.8"
+version: "3.3"
 services:
   echo_service:
-    image: backmandocker/echo_service
+    image: tp6han/eureka-client1
+    links:
+      - "eureka-server"
     ports: 
-        - "8080:8080"
+        - "8081:8081"
+    depends_on:
+      - "eureka-server"
+  eureka-server:
+    image: tp6han/simple-eureka-server
+    hostname: eureka-server
+    ports: 
+        - "8761:8761"
