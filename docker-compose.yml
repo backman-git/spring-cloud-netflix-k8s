@@ -1,13 +1,19 @@
 version: "3.3"
 services:
+
   echo_service:
     image: tp6han/eureka-client1
     links:
       - "eureka-server"
+      - "zipkin_service:zipkin"
     ports: 
         - "8081:8081"
     depends_on:
       - "eureka-server"
+  zipkin_service:
+    image: openzipkin/zipkin
+    ports:
+      - "9411:9411"
   eureka-server:
     image: tp6han/simple-eureka-server
     hostname: eureka-server
