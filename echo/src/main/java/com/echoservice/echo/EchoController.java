@@ -17,7 +17,7 @@ public class EchoController{
     private static Logger log = LoggerFactory.getLogger(EchoController.class);
 
     
-    @GetMapping("echo")
+    @GetMapping("/echo")
     public Greeting greeting(@RequestParam(value = "name",defaultValue = "world") String name){
       log.info("echo response");
 		  return new Greeting(counter.incrementAndGet(), String.format(template, name));

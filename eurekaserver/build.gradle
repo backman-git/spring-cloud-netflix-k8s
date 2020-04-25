@@ -33,3 +33,9 @@ dependencyManagement {
 test {
 	useJUnitPlatform()
 }
+
+jib {
+	container {
+		args = ['--spring.profiles.active=docker']
+	}
+}

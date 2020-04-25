@@ -1,13 +1,21 @@
-version: "3.8"
+version: "3.3"
 services:
 
   echo_service:
-    image: backmandocker/echo_service
-    ports: 
-      - "8081:8081"
+    image: tp6han/eureka-client1
     links:
-      - 'zipkin_service:zipkin'
+      - "eureka-server"
+      - "zipkin_service:zipkin"
+    ports: 
+        - "8081:8081"
+    depends_on:
+      - "eureka-server"
   zipkin_service:
     image: openzipkin/zipkin
     ports:
       - "9411:9411"
+  eureka-server:
+    image: tp6han/simple-eureka-server
+    hostname: eureka-server
+    ports: 
+        - "8761:8761"
