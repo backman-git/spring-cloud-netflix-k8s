@@ -1,6 +1,13 @@
 version: "3.8"
 services:
+
   echo_service:
     image: backmandocker/echo_service
     ports: 
-        - "8080:8080"
+      - "8081:8081"
+    links:
+      - 'zipkin_service:zipkin'
+  zipkin_service:
+    image: openzipkin/zipkin
+    ports:
+      - "9411:9411"
