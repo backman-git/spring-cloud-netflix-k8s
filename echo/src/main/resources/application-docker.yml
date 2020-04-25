@@ -3,6 +3,11 @@ spring:
     active: docker
   application:
     name: echo-service
+  zipkin:
+    baseUrl: http://zipkin:9411
+  sleuth:
+    sampler:
+      probability: 1.0
 
 server:
   port: 8081
