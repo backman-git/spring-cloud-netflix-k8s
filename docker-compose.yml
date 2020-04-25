@@ -5,7 +5,8 @@ services:
     image: backmandocker/echo_service
     ports: 
       - "8081:8081"
-  
+    links:
+      - 'zipkin_service:zipkin'
   zipkin_service:
     image: openzipkin/zipkin
     ports:
