@@ -1,0 +1,19 @@
+spring:
+  application:
+    name: zuul-gateway-service
+
+server:
+  port: 8888
+
+zuul:
+  routes:
+    api-a:
+      path: /producer/**
+      serviceId: echo-service
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka
+    registerWithEureka: false
+    fetchRegistry: true
